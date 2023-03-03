@@ -10,3 +10,5 @@ global using RestAPITesting.Responses;
 global using RestAPITesting.Client;
 global using RestAPITesting.Responses.Login;
 global using RestAPITesting.Responses.Register;
+global using RestAPITesting.Responses.User;
+global using RestAPITesting.Requests.Users;

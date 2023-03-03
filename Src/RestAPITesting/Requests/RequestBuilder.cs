@@ -13,6 +13,12 @@
 
         internal static RequestBuilder Create(Models.ApiData data) => new(data.Url);
 
+        public RequestBuilder MethodGet()
+        {
+            _request.Method = Method.Get;
+            return this;
+        }
+
         public RequestBuilder MethodPost()
         {
             _request.Method = Method.Post;
@@ -23,6 +29,26 @@
             where T : class
         {
             _request.AddJsonBody(dto);
+            return this;
+        }
+
+        public RequestBuilder WithSegments(params (string segment, object value)[] segments)
+        {
+            foreach (var (segment, value) in segments)
+            {
+                _request.AddUrlSegment(segment, value.ToString() ?? throw new InvalidOperationException());
+            }
+
+            return this;
+        }
+
+        public RequestBuilder WithParameters(params (string key, object value)[] parameters)
+        {
+            foreach (var (key, value) in parameters)
+            {
+                _request.AddQueryParameter(key, value.ToString());
+            }
+
             return this;
         }
 

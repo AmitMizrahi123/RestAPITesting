@@ -9,5 +9,11 @@
 
         public static Models.ApiData RegisterApi =>
             new(new Uri(BaseUrl + "api/register"));
+
+        public static Models.ApiData UsersApi =>
+            new(new Uri(BaseUrl + "api/users"));
+
+        public static Models.ApiData GetSingleUserApi(int id) =>
+            new(new Uri(BaseUrl + $"api/users/{id}"));
     }
 }
