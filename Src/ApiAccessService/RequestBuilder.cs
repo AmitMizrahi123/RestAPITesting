@@ -33,6 +33,12 @@ namespace RestAPITesting.ApiAccessService
             return this;
         }
 
+        public RequestBuilder MethodDelete()
+        {
+            _request.Method = Method.Delete;
+            return this;
+        }
+
         public RequestBuilder WithJsonBody<T>(T dto) 
             where T : class
         {

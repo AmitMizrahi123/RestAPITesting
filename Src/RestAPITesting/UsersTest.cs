@@ -59,5 +59,14 @@ namespace RestAPITesting.Test
 
             Assert.That(response.Data.UpdatedAt != DateTimeOffset.Now, "User not updated");
         }
+
+        [Test]
+        public void DeleteUserTests()
+        {
+            var request = new DeleteUSer(2);
+            var response = _apiClient.SendRequest(request);
+
+            Assert.That(response.Data == null, "User not deleted");
+        }
     }
 }

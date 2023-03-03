@@ -18,7 +18,7 @@ namespace RestAPITesting.ApiAccessService.Client
             var request = SetupClientAndCreateRequest(wrappedRequest);
             var response = _client.Execute<TResponse>(request);
 
-            return new WrappedResponse<TResponse>(WrapResponse(response), response.Data ?? throw new InvalidOperationException());
+            return new WrappedResponse<TResponse>(WrapResponse(response), response.Data);
         }
 
         private RestRequest SetupClientAndCreateRequest(WrappedRequest wrappedRequest)
@@ -32,7 +32,7 @@ namespace RestAPITesting.ApiAccessService.Client
         private HttpResponseMessage WrapResponse(RestResponse response) =>
             new()
             {
-                Content = new StringContent(response.Content ?? throw new InvalidOperationException()),
+                Content = new StringContent(response.Content),
                 StatusCode = response.StatusCode,
                 ReasonPhrase = response.StatusDescription,
             };
