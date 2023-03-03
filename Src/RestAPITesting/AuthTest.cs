@@ -1,6 +1,9 @@
-using RestAPITesting.Requests.Register;
+using NUnit.Framework;
+using RestAPITesting.API.Requests.Login;
+using RestAPITesting.API.Requests.Register;
+using RestAPITesting.ApiAccessService.Client;
 
-namespace RestAPITesting
+namespace RestAPITesting.Test
 {
     public class Tests
     {

@@ -1,4 +1,8 @@
-namespace RestAPITesting
+using NUnit.Framework;
+using RestAPITesting.API.Requests.Users;
+using RestAPITesting.ApiAccessService.Client;
+
+namespace RestAPITesting.Test
 {
     public class UsersTest
     {
