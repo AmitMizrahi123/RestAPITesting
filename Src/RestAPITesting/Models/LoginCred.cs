@@ -2,10 +2,18 @@
 {
     public class LoginCred
     {
-        [JsonProperty("email")]
-        public string? Email { get; set; }
+        public LoginCred(string email)
+        {
+            Email = email;
+        }
 
-        [JsonProperty("password")]
-        public string? Password { get; set; }
+        public LoginCred(string email, string password)
+        {
+            Email = email;
+            Password = password;
+        }
+
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

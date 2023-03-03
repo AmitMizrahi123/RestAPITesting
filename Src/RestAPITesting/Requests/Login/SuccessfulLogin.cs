@@ -1,14 +1,18 @@
 ﻿namespace RestAPITesting.Requests.Login
 {
-    public class SuccessfulLogin
+    public class SuccessfulLogin : WrappedRequest<SuccessfulLoginResponse>
     {
-        private readonly string _email;
-        private readonly string _password;
+        private readonly LoginCred _loginCred;
 
         public SuccessfulLogin(string email, string password)
         {
-            _email = email;
-            _password = password;
+            _loginCred = new LoginCred(email, password);
         }
+
+        protected override RequestBuilder CreateRequest() =>
+            GetBuilder().MethodPost().WithJsonBody(_loginCred);
+
+        protected override Models.ApiData GetApiData() => 
+            ApiDataUrls.LoginApi;
     }
 }
