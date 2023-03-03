@@ -9,11 +9,11 @@ namespace RestAPITesting.API.Requests.Register
 {
     public class UnsuccessfulRegister : WrappedRequest<UnsuccessfulRegisterResponse>
     {
-        private readonly LoginCred _loginCred;
+        private readonly LoginCredDto _loginCred;
 
         public UnsuccessfulRegister(string email)
         {
-            _loginCred = new LoginCred(email);
+            _loginCred = new LoginCredDto(email);
         }
 
         protected override RequestBuilder CreateRequest() =>

@@ -27,20 +27,16 @@ namespace RestAPITesting.ApiAccessService
             return this;
         }
 
+        public RequestBuilder MethodPut()
+        {
+            _request.Method = Method.Put;
+            return this;
+        }
+
         public RequestBuilder WithJsonBody<T>(T dto) 
             where T : class
         {
             _request.AddJsonBody(dto);
-            return this;
-        }
-
-        public RequestBuilder WithSegments(params (string segment, object value)[] segments)
-        {
-            foreach (var (segment, value) in segments)
-            {
-                _request.AddUrlSegment(segment, value.ToString() ?? throw new InvalidOperationException());
-            }
-
             return this;
         }
 

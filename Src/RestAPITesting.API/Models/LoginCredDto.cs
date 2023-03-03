@@ -1,13 +1,13 @@
 ﻿namespace RestAPITesting.API.Models
 {
-    public class LoginCred
+    public class LoginCredDto
     {
-        public LoginCred(string email)
+        public LoginCredDto(string email)
         {
             Email = email;
         }
 
-        public LoginCred(string email, string password)
+        public LoginCredDto(string email, string password)
         {
             Email = email;
             Password = password;

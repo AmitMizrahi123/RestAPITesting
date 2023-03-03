@@ -50,5 +50,14 @@ namespace RestAPITesting.Test
 
             Assert.IsNotEmpty(response.Data.Id, "User not created");
         }
+
+        [Test]
+        public void UpdateUserTests()
+        {
+            var request = new UpdateUser(2, "morpheus", "zion resident");
+            var response = _apiClient.SendRequest(request);
+
+            Assert.That(response.Data.UpdatedAt != DateTimeOffset.Now, "User not updated");
+        }
     }
 }
